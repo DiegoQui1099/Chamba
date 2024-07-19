@@ -4,14 +4,23 @@
 <head>
     <meta content="IE=5; IE=7; IE=8" http-equiv="X-UA-Compatible">  
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-    <link href="Estilos/sccrcgeneral.css" media="all" rel="stylesheet" type="text/css">
-    <link href="assets/css/simple-line-icons.css" rel="stylesheet">
-    <link href="assets/css/magnific-popup.css" rel="stylesheet">
-    <link href="assets/css/quick-events.css" rel="stylesheet">
-    <link href="assets/css/datatables.css" rel="stylesheet" type="text/css">
-    <link crossorigin="anonymous" href="css/bootstrap.css" rel="stylesheet">
-    <link crossorigin="anonymous" href="css/design-system.css" rel="stylesheet">
-    <title>Consulta y Certificados Web</title><script src="/ProyectoSCCRC/faces/javax.faces.resource/jsf.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb?ln=javax.faces" type="text/javascript"></script><script src="/ProyectoSCCRC/faces/javax.faces.resource/bridge.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb?rand=855114819" type="text/javascript"></script><script src="/ProyectoSCCRC/faces/javax.faces.resource/compat.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb" type="text/javascript"></script><script src="/ProyectoSCCRC/faces/javax.faces.resource/icefaces-compat.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb" type="text/javascript"></script><script type="text/javascript" src="js/consultarRegistroCivil.js"></script><script type="text/javascript" src="js/consultarRegistroCivil.js"></script></head>
+    <link href="{{ url_for('static', filename='css/sccrcgeneral.css') }}" media="all" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/datatables.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/quick-events.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+    <link crossorigin="anonymous" href="{{ url_for('static', filename='css/boostrap.css') }}" rel="stylesheet">
+    <link crossorigin="anonymous" href="{{ url_for('static', filename='css/desing-system.css') }}" rel="stylesheet">
+    <title>Consulta y Certificados Web</title>
+    
+    <script src="/ProyectoSCCRC/faces/javax.faces.resource/jsf.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb?ln=javax.faces" type="text/javascript"></script>
+    <script src="/ProyectoSCCRC/faces/javax.faces.resource/bridge.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb?rand=855114819" type="text/javascript"></script>
+    <script src="/ProyectoSCCRC/faces/javax.faces.resource/compat.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb" type="text/javascript"></script>
+    <script src="/ProyectoSCCRC/faces/javax.faces.resource/icefaces-compat.js;jsessionid=b3ea7da357fcdd04b0d5987bc1bb" type="text/javascript">
+
+    </script>
+    <script type="text/javascript" src="js/consultarRegistroCivil.js"></script>
+    <script type="text/javascript" src="js/consultarRegistroCivil.js"></script>
 
 </head>    
 
@@ -21,6 +30,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand logoregistraduria" href="https://www.registraduria.gov.co/">
                     </a>
+                    <h2 class="text-center"><b>SISTEMA DE CONSULTAS Y CERTIFICADOS DE REGISTROS CIVILES</b></h2>
                 </div>
             </div>
         </div>
@@ -36,8 +46,7 @@
                     <input name="ice.window" type="hidden" value="lilysr7j6i"><input name="ice.view" type="hidden"
                         value="ve542tfaxq">
                     <center>
-                        <h2 class="text-center"><b>SISTEMA DE CONSULTAS Y CERTIFICADOS DE REGISTROS CIVILES</b></h2>
-                        <br>
+                        
 
                         <div align="center">
 
