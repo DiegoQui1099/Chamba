@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
+
 <body>
     <h1>Consulta de Registros Civiles</h1>
 
@@ -65,6 +68,7 @@
         <div class="bloque-formulario">
             <label for="sexo">Sexo:</label>
             <select name="sexo" id="sexo">
+                <option value="select"></option>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="otro">Sin información</option>
@@ -76,7 +80,10 @@
             <input type="text" name="fecha_nacimiento" id="fecha_nacimiento">
         </div>
 
-        <button type="submit">Consultar</button>
+        <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div> <br/> 
+        <br>
+        <center><button type="submit">Consultar</button></center>
     </form>
+
 </body>
 </html>

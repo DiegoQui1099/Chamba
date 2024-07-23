@@ -8,6 +8,29 @@ $(document).ready(function() {
         $('.bloque-formulario input, .bloque-formulario select').prop('disabled', false);
         $('.bloque-formulario').removeClass('deshabilitado');
 
+        // Limpiar los valores de los campos relevantes según el tipo de búsqueda seleccionado
+        if (tipoBusqueda === 'apellidos_nombres') {
+            $('#serial_registro_civil').val('');
+            $('#numero_identificacion').val('');
+        } else if (tipoBusqueda === 'numero_identificacion') {
+            $('#primer_apellido').val('');
+            $('#segundo_apellido').val('');
+            $('#primer_nombre').val('');
+            $('#segundo_nombre').val('');
+            $('#sexo').val('');
+            $('#fecha_nacimiento').val('');
+        } else if (tipoBusqueda === 'serial') {
+            $('#numero_identificacion').val('');
+            $('#primer_apellido').val('');
+            $('#segundo_apellido').val('');
+            $('#primer_nombre').val('');
+            $('#segundo_nombre').val('');
+            $('#sexo').val('');
+            $('#fecha_nacimiento').val('');
+        } else if (tipoBusqueda === 'todos_criterios') {
+            $('#serial_registro_civil').val('');
+        }
+
         // Deshabilitar los campos relevantes según el tipo de búsqueda seleccionado
         if (tipoBusqueda === 'apellidos_nombres') {
             $('#serial_registro_civil').closest('.bloque-formulario').addClass('deshabilitado');
