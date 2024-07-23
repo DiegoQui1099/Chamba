@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for # type: ignore
-from flask_mysqldb import MySQL # type: ignore
-from config import Config # type: ignore
+from flask import Flask, render_template, request, redirect, url_for 
+from flask_mysqldb import MySQL 
+from config import Config 
 import datetime
 
 app = Flask(__name__)
