@@ -7,76 +7,9 @@ import requests
 
 
 app = Flask(__name__)
-app.config.from_object(Config)
-app.config['SECRET_KEY'] = 'jeje'
+app.secret_key = 'jeje'
 
-mysql = MySQL(app)
-
-# Función para validar formato de fecha
-def validar_fecha(fecha_str):
-    try:
-        datetime.datetime.strptime(fecha_str, '%d/%m/%Y')
-        return True
-    except ValueError:
-        return False
-
-# Función para validar el formulario según el tipo de búsqueda
-def validar_formulario(tipo_busqueda, form_data):
-    if tipo_busqueda == 'apellidos_nombres':
-        primer_apellido = form_data.get('primer_apellido', '').strip()
-        segundo_apellido = form_data.get('segundo_apellido', '').strip()
-        primer_nombre = form_data.get('primer_nombre', '').strip()
-        segundo_nombre = form_data.get('segundo_nombre', '').strip()
-        sexo = form_data.get('sexo', '').strip()
-        fecha_nacimiento = form_data.get('fecha_nacimiento', '').strip()
-
-        if not primer_apellido or not segundo_apellido or not primer_nombre or not segundo_nombre or not sexo or not fecha_nacimiento:
-            return False
-
-        if not validar_fecha(fecha_nacimiento):
-            return False
-
-    elif tipo_busqueda == 'numero_identificacion':
-        numero_identificacion = form_data.get('numero_identificacion', 'Documento', '').strip()
-        if not numero_identificacion:
-            return False
-
-    elif tipo_busqueda == 'serial':
-        serial_registro_civil = form_data.get('serial_registro_civil', '').strip()
-        if not serial_registro_civil:
-            return False
-
-    elif tipo_busqueda == 'todos_criterios':
-        numero_identificacion = form_data.get('numero_identificacion', '').strip()
-        primer_apellido = form_data.get('primer_apellido', '').strip()
-        segundo_apellido = form_data.get('segundo_apellido', '').strip()
-        primer_nombre = form_data.get('primer_nombre', '').strip()
-        segundo_nombre = form_data.get('segundo_nombre', '').strip()
-        sexo = form_data.get('sexo', '').strip()
-        fecha_nacimiento = form_data.get('fecha_nacimiento', '').strip()
-
-        if not numero_identificacion and not primer_apellido and not segundo_apellido \
-                and not primer_nombre and not segundo_nombre and not sexo and not fecha_nacimiento:
-            return False
-
-        if fecha_nacimiento and not validar_fecha(fecha_nacimiento):
-            return False
-
-    return True
-
-    # Funcion del recatcha 
-def is_human(captcha_response):
-        """ Validating recaptcha response from google server
-        Returns True captcha test passed for submitted form else returns False.
-        """
-        secret = "6Ldk5BYqAAAAAH_7BM6y17MEUWFZ0cYCINUvSkoV"
-        payload = {'response':captcha_response, 'secret':secret}
-        response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
-        response_text = json.loads(response.text)
-        return response_text['success']
-
-# Ruta para la página inicial y la inserción de datos
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
     sitekey = "6Ldk5BYqAAAAAJ7qtuqrrDk5nIRQi_7EZdc2buk7"
 
