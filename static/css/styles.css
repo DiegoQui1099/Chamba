@@ -1,13 +1,8 @@
 /* styles.css */
 
 body {
-<<<<<<< HEAD
     display: block;
     font-family: 'Arial', sans-serif;
-=======
-    font-family: 'Arial', sans-serif;
-    display: block;
->>>>>>> 45a766dabda0ec830501130d91c3a994def8f414
     width: 100%;
     height: 100%;
     background-size: 100% auto;
@@ -22,7 +17,6 @@ body {
     background-repeat: no-repeat;
 }
 
-<<<<<<< HEAD
 h3 {
     font-size: 19px;
     color: #002D55;
@@ -34,17 +28,6 @@ h3 {
 form {
     max-width: 600px; /* Ancho máximo del formulario */
     margin: 37px auto; /* Centrar el formulario horizontalmente */
-=======
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-/* Estilo para el formulario */
-form {
-    max-width: 600px; /* Ancho máximo del formulario */
-    margin: 0 auto; /* Centrar el formulario horizontalmente */
->>>>>>> 45a766dabda0ec830501130d91c3a994def8f414
     padding: 20px; /* Espacio interno alrededor del formulario */
     background-color: #f9f9f9; /* Color de fondo para el formulario */
     border: 1px solid #ccc; /* Borde del formulario */
@@ -81,7 +64,6 @@ form {
 
 /* Estilo para el botón de submit */
 button[type="submit"] {
-<<<<<<< HEAD
     background-color: #083b6c;
     color: white;
     padding: 12px 200px;
@@ -114,20 +96,6 @@ button[type="submit"]:hover {
     text-decoration: none;
     display: inline-block;
     text-align: center;
-=======
-    background-color: #0c06c4ca;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-button[type="submit"]:hover {
-    background-color: #0c06c4ca;
->>>>>>> 45a766dabda0ec830501130d91c3a994def8f414
 }
 
 /* Estilos para campos deshabilitados */
@@ -141,7 +109,6 @@ button[type="submit"]:hover {
 }
 
 
-<<<<<<< HEAD
  /* Estilos generales para el footer */
  footer {
     color: #fff; /* Color del texto */
@@ -286,6 +253,3 @@ h1 {
     color: #002D55;
     margin-left: 14px;
 }
-=======
-/* Estilo para el reCatcha */
->>>>>>> 45a766dabda0ec830501130d91c3a994def8f414
