@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta y Certificados Web</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <title>Consulta de Registros Civiles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesConsulta.css') }}">
 </head>
-
 <body>
-    
     <div class="container">
         <div class="navbar deskheader">
             <div class="container-fluid">
@@ -26,76 +18,94 @@
 
     <h3 class="text-center">SISTEMA DE CONSULTAS Y CERTIFICADOS DE REGISTROS CIVILES</h3>
 
-    <form action="/" method="post">
-        <div class="bloque-formulario tipo-busqueda">
-            <label for="tipo_registro_civil">Tipo de Registro Civil:</label>
-            <select name="tipo_registro_civil" id="tipo_registro_civil">
-                <option value="nacimiento">Registro Civil de Nacimiento</option>
-                <option value="matrimonio">Registro Civil de Matrimonio</option>
-            </select>
+    {% if resultados %}
+        <div class="table-container">
+            <h1 class="ml-3 mb-0">Información Basica</h1>
+            {% for resultado in resultados %}
+                <div class="vertical-table">
+                    <table class="result-table">
+                        <tr>
+                            <td class="label">Tipo de Registro Civil:</td>
+                            <td>Registro Civil De Nacimiento</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Serial del Registro Civil:</td>
+                            <td>{{ resultado[1] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Número de Identificación:</td>
+                            <td>{{ resultado[2] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Primer Apellido:</td>
+                            <td>{{ resultado[3] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Segundo Apellido:</td>
+                            <td>{{ resultado[4] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Primer Nombre:</td>
+                            <td>{{ resultado[5] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Segundo Nombre:</td>
+                            <td>{{ resultado[6] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Sexo:</td>
+                            <td>{{ resultado[7] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Fecha de Nacimiento:</td>
+                            <td>{{ resultado[8] }}</td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
         </div>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
 
-        <div class="bloque-formulario tipo-busqueda">
-            <label for="tipo_busqueda">Tipo de búsqueda:</label>
-            <select name="tipo_busqueda" id="tipo_busqueda">
-                <option value="apellidos_nombres">Apellidos y Nombres</option>
-                <option value="numero_identificacion">Documento (Nuip/Nip/Tarjeta de Identidad)</option>
-                <option value="todos_criterios">Todos los criterios</option>
-                <option value="serial">Serial</option>
-            </select>
+    <!-- segundo formulario -->
+
+    {% if resultados %}
+        <div class="table-container">
+            <h1 class="ml-3 mb-0">Información Del Registro Civil</h1>
+            {% for resultado in resultados %}
+                <div class="vertical-table">
+                    <table class="result-table">
+                        <tr>
+                            <td class="label">Serial del Registro Civil:</td>
+                            <td>{{ resultado[1] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Número de Identificación:</td>
+                            <td>{{ resultado[2] }}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Fecha De Inscripción (dd-mm-aaaa):</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="label">Oficina De Registro:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="label">Tipo De Registro Civil:</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
         </div>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
 
-        <div class="bloque-formulario">
-            <label for="serial_registro_civil">Serial del Registro Civil:</label>
-            <input type="text" name="serial_registro_civil" id="serial_registro_civil">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="numero_identificacion">Número de Identificación (Nuip/Nip/Tarjeta de Identidad):</label>
-            <input type="text" name="numero_identificacion" id="numero_identificacion">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="primer_apellido">Primer Apellido:</label>
-            <input type="text" name="primer_apellido" id="primer_apellido">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="segundo_apellido">Segundo Apellido:</label>
-            <input type="text" name="segundo_apellido" id="segundo_apellido">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="primer_nombre">Primer Nombre:</label>
-            <input type="text" name="primer_nombre" id="primer_nombre">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="segundo_nombre">Segundo Nombre:</label>
-            <input type="text" name="segundo_nombre" id="segundo_nombre">
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="sexo">Sexo:</label>
-            <select name="sexo" id="sexo">
-                <option value="select"></option>
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
-                <option value="otro">Sin información</option>
-            </select>
-        </div>
-
-        <div class="bloque-formulario">
-            <label for="fecha_nacimiento">Fecha de Nacimiento (dd/mm/aaaa):</label>
-            <input type="text" name="fecha_nacimiento" id="fecha_nacimiento">
-        </div>
-
-        <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div> <br/> 
-        <br>
-        <center><button type="submit">Consultar</button></center>
-        <center><a href="" class="button">Volver</a></center>
-    </form>
-
+    <center><p><a href="/" class="button">Volver al formulario</a></p></center>
+    <center><p><a href="" class="button">Generar Certificado</a></p></center>
 </body>
 
 <footer id="footer">
