@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-mainlogo.ico') }}">
 </head>
 
 <body>
@@ -89,11 +90,11 @@
             <label for="fecha_nacimiento">Fecha de Nacimiento (dd/mm/aaaa):</label>
             <input type="text" name="fecha_nacimiento" id="fecha_nacimiento">
         </div>
-
+        <br>
         <div class="g-recaptcha" data-sitekey="{{ sitekey }}"></div> <br/> 
         <br>
         <center><button type="submit">Consultar</button></center>
-        <center><a href="" class="button">Volver</a></center>
+        <center><a href="https://www.registraduria.gov.co/" class="button">Volver</a></center>
     </form>
 
 </body>
@@ -212,6 +213,20 @@
                 </p>
             </div>
         </div>
+        <div class="row fixed-bottom container-buttons">
+            <ul class="buttons nav">
+                <li class="buttons-section-r col-4">
+                    <a class="button-link active-button institutional">Institucional</a>
+                </li>
+                <li class="buttons-section-r col-4">
+                    <a class="button-link  services">Servicios a la ciudadan &#237;a</a>
+                </li>
+                <li class="buttons-section-r col-4">
+                    <a class="button-link cedae" href="https://cedae.ainteractivo.com/">CEDAE (Datos para la democracia)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     </div>
 </footer>
 
