@@ -1,3 +1,5 @@
+// static/js/script.js
+
 $(document).ready(function() {
     $('#tipo_busqueda').on('change', function() {
         var tipoBusqueda = $(this).val();
@@ -34,7 +36,7 @@ $(document).ready(function() {
             $('#serial_registro_civil').closest('.bloque-formulario').addClass('deshabilitado');
             $('#serial_registro_civil').prop('disabled', true);
             $('#numero_identificacion').closest('.bloque-formulario').addClass('deshabilitado');
-            $('#numero_identificacion').prop('disabled', true);
+            $('#numero_identificacion').prop('desabled', true);
         } else if (tipoBusqueda === 'numero_identificacion') {
             $('#serial_registro_civil').closest('.bloque-formulario').addClass('deshabilitado');
             $('#serial_registro_civil').prop('disabled', true);
@@ -108,4 +110,54 @@ $(document).ready(function() {
     $('#fecha_nacimiento').on('click', function() {
         $('#fecha_nacimiento').datepicker('show');
     });
+
+    $(document).ready(function() {
+        // Evento al hacer clic en el botón de enviar
+        $('#btnEnviar').on('click', function() {
+            var tipoBusqueda = $('#tipo_busqueda').val();
+            var camposValidos = true;
+            var mensajeError = '';
+    
+            // Validar campos según el tipo de búsqueda seleccionado
+            if (tipoBusqueda === 'apellidos_nombres') {
+                // Validar que los campos de apellidos y nombres estén llenos
+                if ($('#primer_apellido').val() === '' || $('#primer_nombre').val() === '') {
+                    camposValidos = false;
+                    mensajeError = 'Debe ingresar el primer apellido y el primer nombre.';
+                }
+            } else if (tipoBusqueda === 'numero_identificacion') {
+                // Validar que el número de identificación esté lleno
+                if ($('#numero_identificacion').val() === '') {
+                    camposValidos = false;
+                    mensajeError = 'Debe ingresar el número de identificación.';
+                }
+            } else if (tipoBusqueda === 'serial') {
+                // Validar que el serial esté lleno
+                if ($('#serial_registro_civil').val() === '') {
+                    camposValidos = false;
+                    mensajeError = 'Debe ingresar el serial.';
+                }
+            } else if (tipoBusqueda === 'todos_criterios') {
+                // Validar que todos los campos relevantes estén llenos
+                if ($('#primer_apellido').val() === '' || $('#primer_nombre').val() === ''
+                    || $('#numero_identificacion').val() === '' || $('#fecha_nacimiento').val() === '') {
+                    camposValidos = false;
+                    mensajeError = 'Debe llenar todos los campos obligatorios.';
+                }
+            }
+    
+            // Mostrar mensaje de error si los campos no son válidos
+            if (!camposValidos) {
+                // Aquí puedes redirigir a una página de error.html o mostrar un mensaje en pantalla
+                alert(mensajeError);
+                // Opcional: redirigir a una página de error.html
+                // window.location.href = 'error.html';
+            } else {
+                // Aquí puedes enviar el formulario o hacer cualquier otra acción si todos los campos son válidos
+                // Por ejemplo, enviar el formulario usando AJAX
+                alert('Formulario válido. Enviar datos.');
+            }
+        });
+    });
+
 });
