@@ -312,13 +312,14 @@ h1 {
     width: 33.33333333%;
 }
 
-a:not([href]):not([tabindex]) {
+.link-container a:not([href]):not([tabindex]) {
     color: inherit;
     text-decoration: none;
     font-size: 14px;
     width: 413px; /* Ajusta el valor según el largo deseado */
-    /* También puedes usar max-width o min-width según tus necesidades */
 }
+
+
 
 /*Estilos para la navbar*/
 
@@ -990,3 +991,6 @@ h1 {
 @media only screen and (min-width: 120.063em) { } /* min-width 1921px, xxlarge screens */
 
 /*****DESIGNED BY B1G DIGITAL 2022*****/
+
+/* Imagen Top Logo */
+
