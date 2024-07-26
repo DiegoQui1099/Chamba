@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, json
 from flask_mysqldb import MySQL
 from config import Config
 import datetime
+import requests
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -16,7 +17,6 @@ def validar_fecha(fecha_str):
     except ValueError:
         return False
 
-# Función para validar el formulario según el tipo de búsqueda
 def validar_formulario(tipo_busqueda, form_data):
     if tipo_busqueda == 'apellidos_nombres':
         primer_apellido = form_data.get('primer_apellido', '').strip()
@@ -51,18 +51,30 @@ def validar_formulario(tipo_busqueda, form_data):
         sexo = form_data.get('sexo', '').strip()
         fecha_nacimiento = form_data.get('fecha_nacimiento', '').strip()
 
-        if not numero_identificacion and not primer_apellido and not segundo_apellido \
-                and not primer_nombre and not segundo_nombre and not sexo and not fecha_nacimiento:
+        if not numero_identificacion or not primer_apellido or not segundo_apellido or not primer_nombre or not segundo_nombre or not sexo or not fecha_nacimiento:
             return False
 
-        if fecha_nacimiento and not validar_fecha(fecha_nacimiento):
+        if not validar_fecha(fecha_nacimiento):
             return False
 
     return True
 
+# Funcion del recatcha
+def is_human(captcha_response):
+        """ Validating recaptcha response from google server
+        Returns True captcha test passed for submitted form else returns False.
+        """
+        secret = "6Ldk5BYqAAAAAH_7BM6y17MEUWFZ0cYCINUvSkoV"
+        payload = {'response':captcha_response, 'secret':secret}
+        response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
+        response_text = json.loads(response.text)
+        return response_text['success']
+
 # Ruta para la página inicial y la inserción de datos
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    sitekey = "6Ldk5BYqAAAAAJ7qtuqrrDk5nIRQi_7EZdc2buk7"
+
     if request.method == 'POST':
         tipo_registro_civil = request.form.get('tipo_registro_civil', '')
         tipo_busqueda = request.form.get('tipo_busqueda', '')
@@ -166,7 +178,7 @@ def index():
             return render_template('error.html', message="No se encontraron registros en la base de datos.")
 
     # Renderizar el formulario inicial si es GET o no hay resultados
-    return render_template('index.html')
+    return render_template('index.html', sitekey=sitekey)
 
 @app.route('/consulta')
 def consulta():
