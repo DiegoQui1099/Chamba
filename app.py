@@ -1,26 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for, json
-from flask_mysqldb import MySQL 
-from config import Config 
+from flask_mysqldb import MySQL
+from config import Config
 import datetime
 import requests
 
-
-
 app = Flask(__name__)
 app.config.from_object(Config)
-app.config['SECRET_KEY'] = 'jeje'
 
 mysql = MySQL(app)
 
 # Función para validar formato de fecha
 def validar_fecha(fecha_str):
     try:
-        datetime.datetime.strptime(fecha_str, '%d/%m/%Y')
+        datetime.datetime.strptime(fecha_str, '%Y-%m-%d')
         return True
     except ValueError:
         return False
 
-# Función para validar el formulario según el tipo de búsqueda
 def validar_formulario(tipo_busqueda, form_data):
     if tipo_busqueda == 'apellidos_nombres':
         primer_apellido = form_data.get('primer_apellido', '').strip()
@@ -37,7 +33,7 @@ def validar_formulario(tipo_busqueda, form_data):
             return False
 
     elif tipo_busqueda == 'numero_identificacion':
-        numero_identificacion = form_data.get('numero_identificacion', 'Documento', '').strip()
+        numero_identificacion = form_data.get('numero_identificacion', '').strip()
         if not numero_identificacion:
             return False
 
@@ -55,27 +51,25 @@ def validar_formulario(tipo_busqueda, form_data):
         sexo = form_data.get('sexo', '').strip()
         fecha_nacimiento = form_data.get('fecha_nacimiento', '').strip()
 
-        if not numero_identificacion and not primer_apellido and not segundo_apellido \
-                and not primer_nombre and not segundo_nombre and not sexo and not fecha_nacimiento:
+        if not numero_identificacion or not primer_apellido or not segundo_apellido or not primer_nombre or not segundo_nombre or not sexo or not fecha_nacimiento:
             return False
 
-        if fecha_nacimiento and not validar_fecha(fecha_nacimiento):
+        if not validar_fecha(fecha_nacimiento):
             return False
 
     return True
 
-    # Funcion del recatcha 
+# Función del reCAPTCHA
 def is_human(captcha_response):
-        """ Validating recaptcha response from google server
-        Returns True captcha test passed for submitted form else returns False.
-        """
-        secret = "6Ldk5BYqAAAAAH_7BM6y17MEUWFZ0cYCINUvSkoV"
-        payload = {'response':captcha_response, 'secret':secret}
-        response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
-        response_text = json.loads(response.text)
-        return response_text['success']
+    """Validar la respuesta del reCAPTCHA desde el servidor de Google
+    Retorna True si el test de reCAPTCHA fue pasado, sino retorna False.
+    """
+    secret = "6Ldk5BYqAAAAAH_7BM6y17MEUWFZ0cYCINUvSkoV"
+    payload = {'response': captcha_response, 'secret': secret}
+    response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
+    response_text = json.loads(response.text)
+    return response_text['success']
 
-# Ruta para la página inicial y la inserción de datos
 @app.route('/', methods=['GET', 'POST'])
 def index():
     sitekey = "6Ldk5BYqAAAAAJ7qtuqrrDk5nIRQi_7EZdc2buk7"
@@ -97,6 +91,8 @@ def index():
             segundo_apellido = request.form.get('segundo_apellido', '')
             primer_nombre = request.form.get('primer_nombre', '')
             segundo_nombre = request.form.get('segundo_nombre', '')
+            sexo = request.form.get('sexo', '')
+            fecha_nacimiento = request.form.get('fecha_nacimiento', '')
 
             if primer_apellido:
                 conditions.append("primer_apellido = %s")
@@ -113,6 +109,18 @@ def index():
             if segundo_nombre:
                 conditions.append("segundo_nombre = %s")
                 values.append(segundo_nombre)
+            
+            if sexo:
+                conditions.append("sexo = %s")
+                values.append(sexo)
+
+            if fecha_nacimiento:
+                try:
+                    fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, '%Y-%m-%d').date()
+                    conditions.append("fecha_nacimiento = %s")
+                    values.append(fecha_nacimiento)
+                except ValueError:
+                    return render_template('error.html', message="El formato de la fecha es incorrecto. Use YYYY-MM-DD.")
 
         elif tipo_busqueda == 'numero_identificacion':
             numero_identificacion = request.form.get('numero_identificacion', '')
@@ -162,8 +170,12 @@ def index():
                 values.append(sexo)
 
             if fecha_nacimiento:
-                conditions.append("fecha_nacimiento = %s")
-                values.append(fecha_nacimiento)
+                try:
+                    fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, '%Y-%m-%d').date()
+                    conditions.append("fecha_nacimiento = %s")
+                    values.append(fecha_nacimiento)
+                except ValueError:
+                    return render_template('error.html', message="El formato de la fecha es incorrecto. Use YYYY-MM-DD.")
 
         # Construir la consulta SQL final (seleccionando todas las columnas necesarias)
         sql = "SELECT * FROM certificados"
@@ -181,7 +193,8 @@ def index():
         else:
             # Si no hay resultados, mostrar mensaje de error
             return render_template('error.html', message="No se encontraron registros en la base de datos.")
-    
+
+    # Renderizar el formulario inicial si es GET o no hay resultados
     return render_template('index.html', sitekey=sitekey)
 
 @app.route('/consulta')

@@ -30,7 +30,7 @@ h3 {
 }
 /* Estilo para el formulario */
 form {
-    max-width: 600px; /* Ancho máximo del formulario */
+    max-width: 700px; /* Ancho máximo del formulario */
     margin: 37px auto; /* Centrar el formulario horizontalmente */
     padding: 40px; /* Espacio interno alrededor del formulario */
     background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%); /* Color de fondo para el formulario */
@@ -48,7 +48,7 @@ form {
 
 /* Estilo para los labels dentro de los bloques */
 .bloque-formulario label {
-    flex: 0 0 211px; /* Ancho fijo para los labels */
+    flex: 0 0 300px; /* Ancho fijo para los labels */
     margin-right: -25px; /* Espacio entre el label y el input/select */
     text-align: right; /* Alinear el texto del label a la derecha */
     vertical-align: top; /* Alinear el label con el inicio del input/select */
@@ -58,6 +58,7 @@ form {
 /* Estilo para los inputs y selects dentro de los bloques */
 .bloque-formulario input[type="text"],
 .bloque-formulario input[type="number"],
+.bloque-formulario input[type="date"],
 .bloque-formulario select {
     flex: 1; /* El input/select ocupa todo el espacio restante */
     padding: 8px; /* Espaciado interno */
@@ -993,4 +994,7 @@ h1 {
 /*****DESIGNED BY B1G DIGITAL 2022*****/
 
 /* Imagen Top Logo */
+
+
+
 
