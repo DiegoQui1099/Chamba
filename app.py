@@ -70,7 +70,7 @@ def is_human(captcha_response):
     response_text = json.loads(response.text)
     return response_text['success']
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     sitekey = "6Ldk5BYqAAAAAJ7qtuqrrDk5nIRQi_7EZdc2buk7"
 
@@ -197,7 +197,11 @@ def index():
     # Renderizar el formulario inicial si es GET o no hay resultados
     return render_template('index.html', sitekey=sitekey)
 
-@app.route('/consulta')
+@app.route('/')
+def principal():
+    return render_template('principal.html')
+
+@app.route('/consulta', methods=['GET', 'POST'])
 def consulta():
     # Obtener los parámetros de la consulta desde la URL
     tipo_busqueda = request.args.get('tipo_busqueda', '')

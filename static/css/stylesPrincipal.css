@@ -30,7 +30,7 @@ h3 {
 }
 /* Estilo para el formulario */
 form {
-    max-width: 700px; /* Ancho máximo del formulario */
+    max-width:fit-content; /* Ancho máximo del formulario */
     margin: 37px auto; /* Centrar el formulario horizontalmente */
     padding: 40px; /* Espacio interno alrededor del formulario */
     background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%); /* Color de fondo para el formulario */
@@ -62,7 +62,7 @@ form {
 .bloque-formulario select {
     flex: 1; /* El input/select ocupa todo el espacio restante */
     padding: 8px; /* Espaciado interno */
-    font-size: 12px; /* Tamaño de fuente */
+    font-size: 16px; /* Tamaño de fuente */
     border: 1px solid #ccc; /* Borde del input/select */
     border-radius: 6px; /* Borde redondeado */
     box-sizing: border-box; /* Incluir el padding en el ancho total */
@@ -114,8 +114,6 @@ button[type="submit"]:hover {
 .deshabilitado input, .deshabilitado select {
     background-color: #f0f0f0; /* Color de fondo gris para indicar deshabilitado */
 }
-
-
 
 
 /* Estilos para el logotipo */
@@ -966,4 +964,45 @@ h1 {
 
 
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    background-color: #eff5fa;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: left;
+}
+h3 {
+    color: #003366;
+    margin: 20px 0;
+}
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    color: #000000;
+}
 
+.link-container a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    width: 413px;
+}
+
+#footer .w{
+    height: 10px;
+    width: 299px;
+    display: inline-block;
+}

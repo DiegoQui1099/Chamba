@@ -36,6 +36,10 @@ h4{
     color: #002D55;
 }
 
+
+
+
+
 /*****BODY TEXT*****/
 p{
     font-family: "Open Sans";
@@ -115,16 +119,6 @@ a:active{
 
 /*****BACKGROUND*****/
 #main{
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-size: 100% auto;
-    background-repeat: repeat-y;
-    background: radial-gradient(circle at 67.6% 20.39%, rgba(255,255,255,0.5), transparent 69%),radial-gradient(circle at 88.75% 28.67%, rgba(255,255,255,0.5), transparent 60%),radial-gradient(circle at 13.33% 0.38%, #c8f7f4, transparent 38%),radial-gradient(circle at 86.77% 1.6%, #bfd4f5, transparent 39%),radial-gradient(circle at 81.09% 74.15%, rgba(255,255,255,0.5), transparent 57%),radial-gradient(circle at 67.81% 96.71%, #bedbf7, transparent 36%),radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%) ;
-    background-repeat: no-repeat;
-}
-
-.mainc{
     display: block;
     width: 100%;
     height: 100%;
@@ -502,7 +496,31 @@ a:active{
 /*****BUTTONS STYLES*****/
 .mainbtn{
     display: block;
-    width: 50% !important;
+    width: 35% !important;
+    padding: 10px;
+    border: none;
+    text-align: center !important;
+    font-family: "Open Sans" !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 30px !important;
+}
+.backbtn{
+    width: 100% !important;
+    margin-bottom: 50px;
+}
+.cerrarsesion{
+padding-left: 90%;
+font-size: 15px;
+}
+
+.seemorebtn, .consultarbtn{
+    color: #FFFFFF;
+}
+
+.clearback{
+    display: block;
+    width: 35% !important;
     padding: 10px;
     border: none;
     text-align: center !important;
@@ -510,13 +528,11 @@ a:active{
     font-weight: 600 !important;
     font-size: 1em!important;
     border-radius: 30px !important;
-}
-.backbtn{
-    width: 100% !important;
-    margin-bottom: 50px;
-}
-.seemorebtn, .consultarbtn{
-    color: #FFFFFF;
+    background: transparent;
+    border: 2px solid #002D55;
+    box-sizing: border-box;
+    border-radius: 35px;
+    color: ##D13419;
 }
 .consultarbtn, .seemoredata{
     width: 100% !important;
@@ -585,21 +601,22 @@ a.pagination-item-label:hover{
 
 .btn-action{
     display: block;
-    /*float: left;*/
-    width: 45px;
-    height: 45px;
+    float: left;
+    width: 43% !important;
+    height: 56px;
     background-color: #002D55 !important;
     background-repeat: no-repeat !important;
     background-position: 50% 50% !important;
     background-size: auto;
     border-radius: 45px;
+    font-size: 15px !important;
     margin: 0px auto;
     color: white;
 }
 
 .btn-action-cyanblue{
     display: block;
-    /*float: left;*/
+    float: left;
     width: 45px;
     height: 45px;
     background-color: #00F5E8 !important;
@@ -625,17 +642,101 @@ a.btn-action-cyanblue:hover{
 }
 
 /*****FORMS STYLES*****/
+.services_module {
+    display: block;
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2%;
+    z-index: 30;
+    background: linear-gradient(198.35deg, #FFFFFF 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+    /* backdrop-filter: blur(4px); */
+    border-radius: 30px;
+    padding: 10vh 15vh;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+}
+.grecaptcha-badge{
+    bottom: 80px!important;
+}
+.modal-content.services_module{
+    padding: 3vh;
+}
+.modal-content.services_module .modal-header{
+    padding-top: 0;
+    border-bottom: transparent;
+}
+.modal-content.services_module .modal-body{
+    padding-top: 0;
+    border-bottom: transparent;
+}
+.modal-content.services_module .modal-footer{
+    border-top: transparent;
+}
+.button_neo .clearfix.m-4{
+    display: flex;
+}
+.button_neo .clearfix.m-4 .mainbtn.btn-action{
+    margin-right: 2vw;
+}
+.contenedorLogin .services_module{
+    border-radius: 70px;
+    margin-bottom: 40px;
+    margin-bottom: 35px;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0
+}
+.contenedorLogin .services_module h2{
+    margin-bottom: 0;
+}
+.nomargin p{
+    text-align: center;
+}
+.content_inputs{
+    text-align: left;
+    
+}
+.content_inputs .nomargin{
+    padding: 3vh;
+}
+.content_button{
+    display: flex;
+}
+.modbutt .mainbtn{
+    margin: auto;
+}
+.modbutt a .mainbtn{
+    margin-bottom: 2vh;
+}
+
+
 .lightinput{
     display: block;
-    background-color: #FFFFFF;
-    border: 2px solid #002D55;
-    box-sizing: border-box;
-    border-radius: 35px;
-    font-family: "Open Sans";
-    font-weight: normal;
-    padding: 16px;
-    margin-bottom: 20px;
+    background-color: #FFFFFF !important;
+    border: 2px solid #002D55 !important;
+    box-sizing: border-box !important;
+    border-radius: 35px !important;
+    font-family: "Open Sans" !important;
+    font-weight: normal !important;
+    font-size: 15px !important;
+    padding: 16px !important;
+    margin-bottom: 2px !important;
+    border: 1px solid #002d55 !important;
+    border-radius: 35px !important;
+    border-top-left-radius: 35px !important;
+    border-top-right-radius: 35px !important;
+    border-bottom-right-radius: 35px !important;
+    border-bottom-left-radius: 35px !important;
 }
+.contenedor1 {
+  display: flex;
+  justify-content: center;
+}
+
 .docnumber, .inputdata, .filter{
     width: 100%;
 }
@@ -661,6 +762,7 @@ a.btn-action-cyanblue:hover{
 }
 .pqrsform{
     width: 100%;
+    margin: auto;
 }
 .btn-data{
     display: flex;
@@ -692,6 +794,8 @@ a.btn-action-cyanblue:hover{
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-sizing: border-box;
+	font-size: 17px;
+    width: 100% !important;
     backdrop-filter: blur(4px);
 }
 .modal-text{
@@ -948,7 +1052,7 @@ a.btn-action-cyanblue:hover{
 .deskheader{
     background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%);
     backdrop-filter: blur(4px);
-    border-radius: 40px;
+    border-radius: 40px !important;
     padding: 0px 0px 0px 0px;
     padding: 15px 20px 15px 20px;
     margin-top: 20px;
@@ -956,6 +1060,7 @@ a.btn-action-cyanblue:hover{
     z-index: 99;
     border: 1px solid rgba(255, 255, 255, 0.6);
 }
+
 .mainbar{
     display: block !important;
 }
@@ -963,7 +1068,7 @@ a.btn-action-cyanblue:hover{
     width: 280px;
     height: 67px;
     background-repeat: no-repeat;
-    background-image: url("../images/logo-mainlogo.svg");
+    background-image: url("../img/logo-mainlogo.svg");
     background-size: contain;
 }
 .searchbox{
@@ -1067,6 +1172,7 @@ footer{
 }
 .disclamer{
     float: left;
+	padding-left: 10%;
 }
 .menu-footer{
     display: block;
@@ -1113,22 +1219,22 @@ footer{
     margin-bottom: 40px;
 }
 .facebook{
-    background-image: url("../images/ico-footer-facebook.svg");
+    background-image: url("../img/ico-footer-facebook.svg");
 }
 .twitter{
-    background-image: url("../images/ico-footer-twitter.svg");
+    background-image: url("../img/ico-footer-twitter.svg");
 }
 .youtube{
-    background-image: url("../images/ico-footer-youtube.svg");
+    background-image: url("../img/ico-footer-youtube.svg");
 }
 .instagram{
-    background-image: url("../images/ico-footer-instagram.svg");
+    background-image: url("../img/ico-footer-instagram.svg");
 }
 .linkedin{
-    background-image: url("../images/ico-footer-linkedin.svg");
+    background-image: url("../img/ico-footer-linkedin.svg");
 }
 .tiktok{
-    background-image: url("../images/ico-footer-tiktok.png");
+    background-image: url("../img/ico-footer-tiktok.png");
 }
 .buttons-section-r{
     display: flex;
@@ -1158,7 +1264,6 @@ footer{
 .container-buttons{
     margin: 0;
     padding: 0;
-    background-color: #002D55;
 }
 .buttons-section{
     vertical-align: middle;
@@ -1184,15 +1289,16 @@ footer{
     padding-top: 25px;
 }
 .institutional{
-    background-image: url("../images/institucinal.png");
+    background-image: url("../img/institucinal.png");
 }
 .services {
-    background-image: url("../images/servicios.png");
+    background-image: url("../img/servicios.png");
 }
 .cedae{
-    background-image: url("../images/CEDAE.png");
-    background-position: 20% 50% !important;
+    background-image: url("../img/CEDAE.png");
+    background-position: 15% 50% !important;
 }
+
 .active-button{
     background-color: #00F5E8 !important;
     color: #002D55;
@@ -1533,7 +1639,7 @@ a:hover.link-style{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 20px;
+    margin-right: 54px;
     padding: 20px;
 }
 .flexbox-column{
@@ -1572,16 +1678,17 @@ a:hover.link-style{
     display: block;
     float: left;
     width: 100%;
-    min-height: 290px;
-    background-repeat: no-repeat;
+    min-height: 250px;
+    background-repeat: repeat;
     background-position: 50% 50%;
     background-size: cover;
-    border-radius: 30px;
+    border-radius: 35px;
     padding: 20px;
     margin: 20px 0px;
 }
+
 .bann-home{
-    background: linear-gradient(180deg, rgba(0, 45, 85, 0.3) 0%, rgba(32, 71, 106, 0.15) 100%), url("../images/bg-banner.jpg");
+    background: linear-gradient(180deg, rgba(0, 45, 85, 0.3) 0%, rgba(32, 71, 106, 0.15) 100%), url("../images/bg-banner-rc.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1850,10 +1957,93 @@ a:hover.link-style{
 
 /*****RESPONSIVE STYLES*****/
 /* Small screens */ /* max-width 640px, mobile-only styles, use when QAing mobile issues */
-@media only screen and (max-width: 40em) {
-
-    .deskheader {
-        display: none;
+@media only screen and (max-width: 45em) {
+    .mainbanner{
+    display: flex;
+    float: left;
+    width: 109%;
+    min-height: 49px;
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 35px;
+    }
+    .cerrarsesion{
+    padding-left: 75%;
+    font-size: 15px;
+    }
+    .bottommargin-sm {
+    margin-bottom: 57px!important;
+    }
+    .btn-action{
+    display: block;
+    width: 50% !important;
+    height: 38px;
+    background-color: #002D55 !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
+    background-size: auto;
+    border-radius: 45px;
+    font-size: 15px !important;
+    margin: 0px auto;
+    color: white;
+    }
+    .services_module {
+    display: flex;
+    width: 107%;
+    height: auto;
+    margin-bottom: 2%;
+    z-index: 30;
+    background: linear-gradient(198.35deg, #FFFFFF 31.67%, rgba(255, 255, 255, 0.6) 87.55%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 1%;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+    }
+    .content_inputs {
+    text-align: center;
+    width: 92%;
+    display: contents;
+    }
+    .pqrsform {
+    width: 88%;
+    margin: auto;
+    }
+    .mainbtn {
+    display: inline-flex;
+    width: 48% !important;
+    padding: 10px;
+    border: none;
+    text-align: center !important;
+    font-family: "Open Sans" !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 30px !important;
+    }
+    .nobottommargin {
+    font-family: "Open Sans";
+    font-size: 12px;
+    color: black;
+    font-weight: normal;
+    line-height: 1.8;
+    }
+    .modal-content{
+    max-width: 101% !important;
+    margin-left: 0% !important;
+    }
+   .deskheader {
+    background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%);
+    backdrop-filter: blur(4px);
+    border-radius: 40px !important;
+    padding: 0px 0px 0px 0px;
+    padding: 15px 20px 15px 20px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 99;
+    border: 1px solid rgba(255, 255, 255, 0.6);
     }
 
     .mobheader {
@@ -2164,6 +2354,42 @@ a:hover.link-style{
         min-height: auto;
 
     }
+    .btn-action{
+    display: block;
+    /*float: left;*/
+    width: 100% !important;
+    height: 45px;
+    background-color: #002D55 !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
+    background-size: auto;
+    border-radius: 45px;
+    font-size: 15px !important;
+    margin: 0px auto;
+    color: white;
+    }
+    .bottommargin-sm {
+    margin-bottom: 57px!important;
+    }
+    .pqrsform {
+    width: 100%;
+    margin: auto;
+    }
+    .modal-content{
+    max-width: 100% !important;
+    margin-left: 0% !important;
+    }
+    .deskheader {
+    background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%);
+    backdrop-filter: blur(4px);
+    border-radius: 40px !important;
+    padding: 0px 0px 0px 0px;
+    padding: 15px 20px 15px 20px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 99;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    }
     #mydocument {
         display: block;
         float: left;
@@ -2205,6 +2431,31 @@ a:hover.link-style{
         background-size: contain;
         background-position: 10px 0px
     }
+    .btn-action{
+    display: block;
+    /*float: left;*/
+    width: 100% !important;
+    height: 45px;
+    background-color: #002D55 !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50% !important;
+    background-size: auto;
+    border-radius: 45px;
+    font-size: 15px !important;
+    margin: 0px auto;
+    color: white;
+    }
+    .deskheader {
+    background: linear-gradient(90.77deg, rgba(255, 255, 255, 0.72) 9.57%, rgba(255, 255, 255, 0.45) 95.45%);
+    backdrop-filter: blur(4px);
+    border-radius: 40px !important;
+    padding: 0px 0px 0px 0px;
+    padding: 15px 20px 15px 20px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 99;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    }
 
     .mainbtn {
         width: 60%;
@@ -2223,9 +2474,7 @@ a:hover.link-style{
         width: 100% !important;
     }
 
-    .deskheader {
-        display: none;
-    }
+   
 
     .searchico {
         background-image: none;

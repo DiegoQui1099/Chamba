@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta y Certificados Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesPrincipal.css') }}">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link type='image/x-icon' rel='shortcut icon' href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="navbar deskheader">
+            <div class="container-fluid">
+                <a class="navbar-brand logoregistraduria" target="_blank" href="https://www.registraduria.gov.co/"></a>
+                <h1 class="ml-3 mb-0">Consulta De Registros Civiles</h1>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h3 class="text-center">SISTEMA DE CONSULTAS Y CERTIFICADOS DE REGISTROS CIVILES</h3>
+    <form action="/" method="post">
+        <table cellpadding="10px" cellspacing="1" frame="box" style="border-collapse: collapse; border-color:#000000; bgcolor:#eff5fa ">
+            <tr>
+            <center><h3>Certificados de Registro Civil</h3></center>
+                <td>
+                    <center><div align="justify" style="width: 721px; color: #000000;">
+                        El Registro Civil de nacimiento constituye la base para la identificaci&#243;n de la poblaci&#243;n colombiana. En el siguiente enlace 
+                         usted podr&#225;consultar la oficina en donde se adelant&#243;la inscripci&#243;n de su registro civil de nacimiento o de matrimonio. Esta 
+                         informaci&#243;n le ser&#225;suministrada por el sistema siempre y cuando usted tenga grabado el serial de su registro en las bases de datos 
+                         de la Registradur&#237;a Nacional, teniendo en cuenta  que el formato de seriales para el registro civil de nacimiento fue implementado 
+                         paulatinamente a partir del a&#241;o 1970 y para registro civil de matrimonio a partir de 1981, de acuerdo con lo establecido en el Decreto 
+                         1260 de 1970.<br/>
+                        <br/>S&#237;ha realizado recientemente alg&#250;n tramit&#233;de actualizaci&#243;n a su registro,este cambio ser&#225;reflejado dentro de los 
+                         pr&#243;ximos cinco(5) d&#237;as h&#225;biles siguientes.
+                    
+                    </div></center>
+                </td>
+            </tr>
+        </table>
+        <center><a href="{{url_for('index')}}" class="button">Ingresar Usuario Publico</a></center>
+        <center><a href="https://www.registraduria.gov.co/" class="button">Página Principal RNEC</a></center>
+    </form>
+
+</body>
+
+{% include 'footer.html' %}
+
+</html>

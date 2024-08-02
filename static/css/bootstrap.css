@@ -320,8 +320,10 @@ tr,
 td,
 th {
   border-color: inherit;
-  border-style: solid;
-  border-width: 0;
+    border-style: solid;
+    border-width: 0px;
+    font-size: small;
+    font-family: sans-serif;
 }
 
 label {
@@ -590,7 +592,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -4025,7 +4027,7 @@ textarea.form-control-lg {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
 }
 .navbar-brand {
   padding-top: 0.3125rem;

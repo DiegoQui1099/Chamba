@@ -98,13 +98,13 @@ $(document).ready(function() {
 // Validaciones específicas para los campos
 $('#numero_identificacion').on('input', function() {
     // Permitir solo números y limitar longitud de 1 a 12 caracteres
-    var sanitized = $(this).val().replace(/[^0-9]/g, '').substring(0, 12);
+    var sanitized = $(this).val().replace(/[^0-9]/g, '').substring(0, 11);
     $(this).val(sanitized);
 });
 
 $('#serial_registro_civil').on('input', function() {
-    // Validación para el campo serial, permitir solo letras y números
-    var sanitized = $(this).val().replace(/[^a-zA-Z0-9]/g, '').substring(0, 12);
+    // Validación para el campo serial, números
+    var sanitized = $(this).val().replace(/[^0-9]/g, '').substring(0, 10);
     $(this).val(sanitized);
 });
 
